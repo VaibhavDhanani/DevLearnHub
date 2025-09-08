@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import { Search, Bell, User, Menu, X } from "lucide-react";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -75,14 +76,17 @@ const Navbar = () => {
 
           {/* User Profile */}
           <div className="flex items-center space-x-2">
-            <button className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100 transition-colors">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full flex items-center justify-center">
-                <User className="h-4 w-4 text-white" />
-              </div>
-              <span className="hidden md:block text-sm font-medium text-gray-700">
-                JD
-              </span>
-            </button>
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton>
+                <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
 
           {/* Hamburger Icon for Mobile */}
@@ -90,7 +94,11 @@ const Navbar = () => {
             className="md:hidden p-2 text-gray-700 hover:text-purple-600 transition-colors"
             onClick={toggleMobileMenu}
           >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
