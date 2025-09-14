@@ -3,12 +3,8 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import {
   ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
 } from "@clerk/nextjs";
+import Navbar from "@/components/general/Navbar";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -34,6 +30,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`antialiased vsc-initialized`}>
+          <Navbar />
           {children}
         </body>
       </html>
