@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document, Model, Types } from "mongoose";
 
 export interface IUser extends Document {
+  clerkId: string
   username: string;
   firstName: string;
   lastName: string;
@@ -27,6 +28,11 @@ export interface IUser extends Document {
 
 const userSchema: Schema<IUser> = new Schema(
   {
+    clerkId:{
+      type: String,
+      required: true,
+      unique: true   
+    },
     username: {
       type: String,
       required: true,
@@ -132,12 +138,12 @@ const userSchema: Schema<IUser> = new Schema(
         "cybersecurity",
         "other",
       ],
-      required: true,
+      required: false,
     },
     experienceLevel: {
       type: String,
       enum: ["student", "junior", "mid", "senior", "lead", "architect"],
-      required: true,
+      required: false,
     },
     primaryTechnologies: [
       {
