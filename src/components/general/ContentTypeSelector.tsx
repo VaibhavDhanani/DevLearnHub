@@ -9,7 +9,6 @@ const ContentTypeSelector = () => {
       bgColor: "bg-yellow-50",
       borderColor: "border-yellow-200",
       iconBg: "bg-yellow-100",
-      link: "quick-tip",
     },
     {
       icon: "📊",
@@ -18,7 +17,6 @@ const ContentTypeSelector = () => {
       bgColor: "bg-blue-50",
       borderColor: "border-blue-200",
       iconBg: "bg-blue-100",
-      link: "code-snippet",
     },
     {
       icon: "🎥",
@@ -28,7 +26,6 @@ const ContentTypeSelector = () => {
       bgColor: "bg-red-50",
       borderColor: "border-red-200",
       iconBg: "bg-red-100",
-      link: "tutorial-video",
     },
     {
       icon: "📝",
@@ -38,7 +35,6 @@ const ContentTypeSelector = () => {
       bgColor: "bg-green-50",
       borderColor: "border-green-200",
       iconBg: "bg-green-100",
-      link: "blog-post",
     },
     {
       icon: "📁",
@@ -47,7 +43,6 @@ const ContentTypeSelector = () => {
       bgColor: "bg-indigo-50",
       borderColor: "border-indigo-200",
       iconBg: "bg-indigo-100",
-      link: "project-showcase",
     },
     {
       icon: "🔧",
@@ -56,7 +51,6 @@ const ContentTypeSelector = () => {
       bgColor: "bg-purple-50",
       borderColor: "border-purple-200",
       iconBg: "bg-purple-100",
-      link: "tech-update",
     },
     {
       icon: "❓",
@@ -65,7 +59,6 @@ const ContentTypeSelector = () => {
       bgColor: "bg-gray-50",
       borderColor: "border-gray-200",
       iconBg: "bg-gray-100",
-      link: "question",
     },
     {
       icon: "💬",
@@ -74,7 +67,6 @@ const ContentTypeSelector = () => {
       bgColor: "bg-pink-50",
       borderColor: "border-pink-200",
       iconBg: "bg-pink-100",
-      link: "discussion",
     },
   ];
 
@@ -93,26 +85,24 @@ const ContentTypeSelector = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {contentTypes.map((type, index) => (
-              <div
+            <div
               key={index}
               className={`${type.bgColor} ${type.borderColor} border rounded-lg p-6 cursor-pointer hover:shadow-md transition-all duration-200 hover:scale-105`}
-              >
-                  <Link href={`share/${type.link}`}>
-                <div className="flex items-start space-x-4">
-                  <div className={`${type.iconBg} rounded-lg p-3 text-2xl`}>
-                    {type.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {type.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {type.description}
-                    </p>
-                  </div>
+            >
+              <div className="flex items-start space-x-4">
+                <div className={`${type.iconBg} rounded-lg p-3 text-2xl`}>
+                  {type.icon}
                 </div>
-                </Link>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {type.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {type.description}
+                  </p>
+                </div>
               </div>
+            </div>
           ))}
         </div>
       </div>
